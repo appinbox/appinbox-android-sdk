@@ -1,7 +1,10 @@
 package com.appinbox.sdk.worker
 
+import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
@@ -72,7 +75,16 @@ class ClearWorker(
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createChannel() {
-        // Create a Notification channel
+        val NOTIFICATION_CHANNEL_ID = "com.appinbox.android"
+        val channelName = "App Inbox"
+        val chan = NotificationChannel(
+            NOTIFICATION_CHANNEL_ID,
+            channelName,
+            NotificationManager.IMPORTANCE_NONE
+        )
+        chan.lightColor = Color.BLUE
+        chan.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
+        notificationManager.createNotificationChannel(chan)
     }
 
     companion object {
