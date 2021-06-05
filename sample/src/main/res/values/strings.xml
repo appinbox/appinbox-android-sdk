@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">App Inbox</string>
+    <string name="default_notification_channel_id">Default Channel</string>
+    <string name="fcm_message">App Inbox notification</string>
+    <string name="msg_token_fmt">Token: %s</string>
+</resources>

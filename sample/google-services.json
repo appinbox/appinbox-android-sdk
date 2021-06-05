@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "499736155596",
+    "project_id": "appinbox-4dc1a",
+    "storage_bucket": "appinbox-4dc1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499736155596:android:1b4a90b08d9c31b0433969",
+        "android_client_info": {
+          "package_name": "com.appinbox.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499736155596-phu9fhm9t5vqnksdvme5j7e2a1h6cc43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0P_KhUTxlmJOsyGnutauB4_XhtuDvryw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499736155596-phu9fhm9t5vqnksdvme5j7e2a1h6cc43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
