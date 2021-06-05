@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.work.ForegroundInfo
 import androidx.work.WorkManager
 import androidx.work.Worker
@@ -26,6 +25,7 @@ class InitWorker(
     parameters: WorkerParameters
 ) : Worker(context, parameters) {
     private val notificationManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private val channelId= "com.appinbox.android"
     override fun doWork(): Result {
         val inputData = inputData
         val appId = inputData.getString(WorkerVars.KEY_APP_ID)
@@ -56,7 +56,6 @@ class InitWorker(
     private fun createForegroundInfo(progress: String): ForegroundInfo {
         // Build a notification using bytesRead and contentLength
         val context = applicationContext
-        val id = context.getString(R.string.default_notification_channel_id)
         val title = context.getString(R.string.notif_init_title)
         val cancel = context.getString(R.string.notif_cancel)
         // This PendingIntent can be used to cancel the worker
@@ -65,7 +64,7 @@ class InitWorker(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannel()
         }
-        val notification = NotificationCompat.Builder(context, id)
+        val notification = NotificationCompat.Builder(context, channelId)
             .setContentTitle(title)
             .setTicker(title)
             .setSmallIcon(R.drawable.ic_stat_ic_notification)
@@ -78,10 +77,9 @@ class InitWorker(
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createChannel() {
-        val NOTIFICATION_CHANNEL_ID = "com.appinbox.android"
         val channelName = "App Inbox"
         val chan = NotificationChannel(
-            NOTIFICATION_CHANNEL_ID,
+            channelId,
             channelName,
             NotificationManager.IMPORTANCE_NONE
         )
